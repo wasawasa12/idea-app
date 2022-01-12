@@ -1,0 +1,8 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">統括的分析</a>
+{% endblock header %} {% block content %}
+
+<p>納得のいくアイディアは出せましたか</p>
+<p><a href="{% url 'refine:list' %}">はい→アイディアの精緻化</a></p>
+<p><a href="{% url 'reflect:list'%}">いいえ→アイディアの振り返り</a></p>
+{% endblock content %}

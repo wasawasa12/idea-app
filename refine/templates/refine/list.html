@@ -1,0 +1,60 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">アイディアの精緻化</a>
+{% endblock header%} {% block content %}
+<h3>論点一覧</h3>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">論点</th>
+        <th scope="col">優先順位</th>
+        <th>user</th>
+        <th></th>
+        <th><a href="{% url 'refine:create' %}">論点の新規作成</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for issues in Issues %}
+      <tr>
+        <td>{{ issues.issues }}</td>
+        <td>{{ issues.priority }}</td>
+        <td>{{ issues.create_user}}</td>
+        <td>
+          <a href="{% url 'refine:update' issues.pk %}">論点/優先順位の編集</a>
+        </td>
+        <td><a href="{% url 'refine:delete' issues.pk %}">削除</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<!--コメントを表示する-->
+<h3>コメント</h3>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">論点</th>
+        <th scope="col">コメントタイプ</th>
+        <th scope="col">コメント内容</th>
+        <th></th>
+        <th><a href="{% url 'refine:c_create' %}">コメントの新規作成</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for issues in contents_list %}
+      <tr>
+        <td>{{ issues.ref_issues }}</td>
+        <td>{{ issues.get_comment_type_display }}</td>
+        <td>{{ issues.comment_content}}</td>
+        <td>
+          <a href="{% url 'refine:c_update' issues.pk %}">コメント内容の編集</a>
+        </td>
+        <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content%}

@@ -1,0 +1,18 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">アイディア詳細</a>
+{% endblock header %} {% block content %}
+
+<div class="card">
+  <div class="card-body">
+    <h2>アイディア: {{opinion.title}}</h2>
+    <p>アイディアの説明: {{opinion.description}}</p>
+    <p>サイクルの回数: {{opinion.cycle_num}}</p>
+  </div>
+</div>
+<a
+  class="btn btn-outline-secondary mt-2"
+  href="{% url 'idea:list' %}"
+  role="button"
+  >戻る</a
+>
+{% endblock content %}

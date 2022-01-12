@@ -1,0 +1,29 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">評価基準一覧</a>
+{% endblock header%}{% block content %}
+<h3><a href="{% url 'standard:create' %}">新規作成</a></h3>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">評価基準</th>
+        <!--整形のためtbodyと要素数をそろえる-->
+        <th>user</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in standards %}
+      <tr>
+        <td>{{ a.standard }}</td>
+        <td>{{ a.create_user}}</td>
+        <td><a href="{% url 'standard:update' a.pk %}">編集</a></td>
+        <td><a href="{% url 'standard:delete' a.pk %}">削除</a></td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

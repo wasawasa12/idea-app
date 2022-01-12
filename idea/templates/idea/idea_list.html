@@ -1,0 +1,32 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">アイディア一覧</a>
+{% endblock header %} {% block content %}
+
+<h3><a href="{% url 'idea:create' %}">新規作成</a></h3>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>cycle_number</th>
+        <th>user</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in idea %}
+      <tr>
+        <td>{{ a.title }}</td>
+        <td>{{ a.description }}</td>
+        <td>{{ a.cycle_num}}</td>
+        <td>{{ a.create_user}}</td>
+        <td><a href="{% url 'idea:detail' a.pk %}">詳細</a></td>
+        <td><a href="{% url 'idea:update' a.pk %}">編集</a></td>
+        <td><a href="{% url 'idea:delete' a.pk %}">削除</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">再試行の設計</a>
+{% endblock header %} {% block content %}
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">問題点</th>
+        <th scope="col">再試行の内容</th>
+        <th>user</th>
+        <th></th>
+        <th>
+          <h5><a href="{% url 'retry:create' %}">新規作成</a></h5>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for content in contents %}
+      <tr>
+        <td>{{ content.ref_problem }}</td>
+        <td>{{ content.content }}</td>
+        <td>{{ content.create_user}}</td>
+        <td><a href="{% url 'retry:update' content.pk %}">編集</a></td>
+        <td><a href="{% url 'retry:delete' content.pk %}">削除</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

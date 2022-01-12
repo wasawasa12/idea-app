@@ -1,0 +1,42 @@
+{% extends 'account/base.html' %} {% block header %}
+<a class="navbar-brand" href="">アイディア投票画面</a>
+{% endblock header %} {% block content %}
+
+<div class="card">
+  <div class="card-body">
+    <h5>アイディア: {{idea.title}}</h5>
+    <p>説明: {{idea.description}}</p>
+
+    <form action="{% url 'idea:Vote' pk=idea.id %}" method="post">
+      {% csrf_token %}
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="choice"
+          value="best"
+        />best
+        <label class="form-check-label" for="best"></label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="choice"
+          value="better"
+        />better
+        <label class="form-check-label" for="better"></label>
+      </div>
+      <div>
+        <input class="btn btn-primary" type="submit" value="投票" />
+      </div>
+    </form>
+  </div>
+</div>
+<a
+  class="btn btn-outline-secondary mt-2"
+  href="{% url 'idea:v_list' %}"
+  role="button"
+  >戻る</a
+>
+{% endblock content %}
