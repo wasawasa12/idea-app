@@ -1,5 +1,5 @@
 {% extends 'account/base.html' %} {% block header %}
-<a class="navbar-brand" href="">アイディアの投稿/編集</a>
+<a class="navbar-brand" href="">投票内容の編集</a>
 {% endblock header%} {% block content %}
 <form action="" method="POST">
   {% csrf_token %}
@@ -8,7 +8,7 @@
   </table>
   <a
     class="btn btn-outline-secondary"
-    href="{% url 'idea:list' %}"
+    href="{% url 'idea:v_list' %}"
     role="button"
     >戻る</a
   >

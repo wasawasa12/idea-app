@@ -2,16 +2,18 @@
 <a class="navbar-brand" href="">アイディア一覧</a>
 {% endblock header %} {% block content %}
 
-<h3><a href="{% url 'idea:create' %}">新規作成</a></h3>
 
 <div class="container">
   <table class="table">
-    <thead>
+    <thead style="background-color: aquamarine">
       <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>cycle_number</th>
-        <th>user</th>
+        <th>アイディア</th>
+        <th>説明</th>
+        <th>試行回数</th>
+        <th>ユーザー名</th>
+        <th></th>
+        <th></th>
+        <th><a href="{% url 'idea:create' %}">新規作成</a</th>
       </tr>
     </thead>
     <tbody>

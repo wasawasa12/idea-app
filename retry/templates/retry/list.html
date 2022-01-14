@@ -1,17 +1,22 @@
 {% extends 'account/base.html' %} {% block header %}
 <a class="navbar-brand" href="">再試行の設計</a>
-{% endblock header %} {% block content %}
+{% endblock header %}
+<!--このコメントは消さないで、インデントでバグる-->
+{% block content %}
 
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table caption-top">
+    <caption>
+      再試行の設計
+    </caption>
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">問題点</th>
         <th scope="col">再試行の内容</th>
         <th>user</th>
         <th></th>
         <th>
-          <h5><a href="{% url 'retry:create' %}">新規作成</a></h5>
+          <a href="{% url 'retry:create' %}">新規作成</a>
         </th>
       </tr>
     </thead>

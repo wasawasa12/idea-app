@@ -1,22 +1,25 @@
 {% extends 'account/base.html' %} {% block header %}
 <a class="navbar-brand" href="">アイディア評価マトリクス</a>
 {% endblock header %} {% block content %}
-<h3><a href="{% url 'matrix:create' %}">新規作成</a></h3>
 
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table table-striped table-bordered table-hover">
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">アイディア</th>
         <th scope="col">評価基準</th>
         <th scope="col">コメントの種類</th>
         <th scope="col">コメントの内容</th>
         <th>user</th>
+        <th></th>
+        <th><a href="{% url 'matrix:create' %}">新規作成</a></th>
       </tr>
     </thead>
     <tbody>
       {% for matrix in matrixes %}
-      <tr>
+      <!--コメントタイプでif-->
+      {% if matrix.get_comment_type_display == 'ポジティブ' %}
+      <tr class="table-warning">
         <td>{{ matrix.ref_idea}}</td>
         <td>{{ matrix.ref_standard}}</td>
         <!--コメントタイプのvalueを表示させる-->
@@ -26,7 +29,29 @@
         <td><a href="{% url 'matrix:update' matrix.pk %}">編集</a></td>
         <td><a href="{% url 'matrix:delete' matrix.pk %}">削除</a></td>
       </tr>
-      {% endfor %}
+      {% elif matrix.get_comment_type_display == 'ネガティブ' %}
+      <tr class="table-primary">
+        <td>{{ matrix.ref_idea}}</td>
+        <td>{{ matrix.ref_standard}}</td>
+        <!--コメントタイプのvalueを表示させる-->
+        <td>{{ matrix.get_comment_type_display}}</td>
+        <td>{{ matrix.comment_content}}</td>
+        <td>{{ matrix.create_user}}</td>
+        <td><a href="{% url 'matrix:update' matrix.pk %}">編集</a></td>
+        <td><a href="{% url 'matrix:delete' matrix.pk %}">削除</a></td>
+      </tr>
+      {% else %}
+      <tr class="table-danger">
+        <td>{{ matrix.ref_idea}}</td>
+        <td>{{ matrix.ref_standard}}</td>
+        <!--コメントタイプのvalueを表示させる-->
+        <td>{{ matrix.get_comment_type_display}}</td>
+        <td>{{ matrix.comment_content}}</td>
+        <td>{{ matrix.create_user}}</td>
+        <td><a href="{% url 'matrix:update' matrix.pk %}">編集</a></td>
+        <td><a href="{% url 'matrix:delete' matrix.pk %}">削除</a></td>
+      </tr>
+      {% endif %} {% endfor %}
     </tbody>
   </table>
 </div>

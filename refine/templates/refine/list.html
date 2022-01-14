@@ -1,10 +1,13 @@
 {% extends 'account/base.html' %} {% block header %}
 <a class="navbar-brand" href="">アイディアの精緻化</a>
 {% endblock header%} {% block content %}
-<h3>論点一覧</h3>
+
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table caption-top">
+    <caption>
+      論点一覧
+    </caption>
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">論点</th>
         <th scope="col">優先順位</th>
@@ -29,10 +32,12 @@
   </table>
 </div>
 <!--コメントを表示する-->
-<h3>コメント</h3>
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table caption-top">
+    <caption>
+      コメント
+    </caption>
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">論点</th>
         <th scope="col">コメントタイプ</th>
@@ -57,4 +62,5 @@
     </tbody>
   </table>
 </div>
+
 {% endblock content%}

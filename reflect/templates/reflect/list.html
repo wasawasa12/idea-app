@@ -2,10 +2,12 @@
 <a class="navbar-brand" href="">アイディアの振り返り</a>
 {% endblock header %} {% block content %}
 <!--論点を表示する-->
-<h3>振り返りの論点一覧</h3>
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table caption-top">
+    <caption>
+      振り返り論点一覧
+    </caption>
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">論点</th>
         <th>user</th>
@@ -29,21 +31,26 @@
 </div>
 
 <!--コメントを表示する-->
-<h3>コメント一覧</h3>
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table caption-top">
+    <caption>
+      コメント一覧
+    </caption>
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">論点</th>
         <th scope="col">コメントタイプ</th>
         <th scope="col">コメント内容</th>
         <th>user</th>
+        <th></th>
         <th><a href="{% url 'reflect:c_create' %}">コメントの新規作成</a></th>
       </tr>
     </thead>
     <tbody>
       {% for reflect in reflect_contents_list %}
-      <tr>
+      <!--コメントタイプでif-->
+      {% if reflect.get_comment_type_display == 'ポジティブ' %}
+      <tr class="table-warning">
         <td>{{ reflect.ref_issues }}</td>
         <td>{{ reflect.get_comment_type_display }}</td>
         <td>{{ reflect.comment_content }}</td>
@@ -55,19 +62,48 @@
         </td>
         <td><a href="{% url 'reflect:c_delete' reflect.pk %}">削除</a></td>
       </tr>
-      {% endfor %}
+      {% elif reflect.get_comment_type_display == 'ネガティブ' %}
+      <tr class="table-primary">
+        <td>{{ reflect.ref_issues }}</td>
+        <td>{{ reflect.get_comment_type_display }}</td>
+        <td>{{ reflect.comment_content }}</td>
+        <td>{{ reflect.create_user }}</td>
+        <td>
+          <a href="{% url 'reflect:c_update' reflect.pk %}"
+            >コメント内容の編集</a
+          >
+        </td>
+        <td><a href="{% url 'reflect:c_delete' reflect.pk %}">削除</a></td>
+      </tr>
+      {% else %}
+      <tr class="table-danger">
+        <td>{{ reflect.ref_issues }}</td>
+        <td>{{ reflect.get_comment_type_display }}</td>
+        <td>{{ reflect.comment_content }}</td>
+        <td>{{ reflect.create_user }}</td>
+        <td>
+          <a href="{% url 'reflect:c_update' reflect.pk %}"
+            >コメント内容の編集</a
+          >
+        </td>
+        <td><a href="{% url 'reflect:c_delete' reflect.pk %}">削除</a></td>
+      </tr>
+      {% endif %} {% endfor %}
     </tbody>
   </table>
 </div>
 
 <!--振り返り問題点の表示-->
-<h3>問題点</h3>
 <div class="container">
-  <table class="table">
-    <thead>
+  <table class="table caption-top">
+    <caption>
+      問題点
+    </caption>
+    <thead style="background-color: aquamarine">
       <tr>
         <th scope="col">問題点</th>
         <th>user</th>
+        <th></th>
         <th><a href="{% url 'reflect:p_create' %}">問題点の新規投稿</a></th>
       </tr>
     </thead>

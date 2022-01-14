@@ -3,13 +3,16 @@
 {% endblock header %} {% block content %} {% load math_tags %}
 <div class="container">
   <table class="table">
-    <thead>
+    <thead style="background-color: aquamarine">
       <tr>
         <th>アイディア</th>
         <th>bestの票</th>
         <th>betterの票</th>
         <th>得点</th>
         <th>user</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,7 +24,8 @@
         <!--カスタムテンプレートを使って計算-->
         <td>{% multiply a.best_choice a.better_choice %}</td>
         <td>{{ a.create_user}}</td>
-        <td><a href="{% url 'idea:v_detail' a.pk %}">投票</a></td>
+        <td><a href="{% url 'idea:vote_update' a.pk %}">投票</a></td>
+        <td><a href="{% url 'idea:v_detail' a.pk %}">投票(旧)</a></td>
         <!--モーダルはじめ-->
         {# 以下削除ボタン #}
         <td>

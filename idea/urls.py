@@ -15,6 +15,7 @@ urlpatterns = [
     path("v_detail/<int:pk>", views.VoteDetail.as_view(), name="v_detail"),  # 投票画面遷移
     # ここからは投票機能
     path('index', views.index, name="index"),  # 接続テスト用
+    path("vote_update/<int:pk>", views.VoteUpdate.as_view(), name="vote_update"),  # 編集
     path('Vote/<int:pk>/', views.Vote, name='Vote'),  # 投票を増やす機能
     path('Vote_decrease/<int:pk>/', views.Vote_decrease, name='Vote_decrease'),  # 投票を減らす機能(best)
     path('Vote_decrease2/<int:pk>/', views.Vote_decrease2, name='Vote_decrease2'),  # 投票を減らす機能(better)

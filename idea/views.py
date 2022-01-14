@@ -88,6 +88,14 @@ class VoteList(generic.ListView):
     def get_queryset(self):
         return Idea.objects.filter(create_user=self.request.user)
 
+
+# 投票機能
+class VoteUpdate(generic.UpdateView):
+    model = Idea
+    fields = ('best_choice', 'better_choice', )
+    template_name = 'idea/v_form.html'
+    success_url = reverse_lazy("idea:v_list")  # 登録が終わるとトップページに戻る
+
 # 投票内容を一つ減らす機能
 
 
@@ -122,14 +130,6 @@ class VoteDetail(generic.DetailView):
 
 # 入力された結果を反映させる
 
-# これはテスト用
-
-
-def index(request):
-    return HttpResponse("Hello World")
-
-# 選択肢を受け取り内容に応じて＋1をする
-
 
 def Vote(request, pk):
     # ここで評価を受け取る
@@ -144,4 +144,8 @@ def Vote(request, pk):
     success_url = reverse_lazy("idea:v_list")
     return HttpResponseRedirect(success_url)
 
-# ここからは投票に関する機能(旧バージョン)
+# これはテスト用
+
+
+def index(request):
+    return HttpResponse("Hello World")
