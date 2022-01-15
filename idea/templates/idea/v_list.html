@@ -1,6 +1,7 @@
 {% extends 'account/base.html' %} {% block header %}
 <p>
-  <span id="page-title">アイディア投票</span></br> 
+  <span id="page-title">アイディア投票</span
+  >　　　メンバーはそれぞれ、発想されたアイディアに対し、bestを１つ、betterを一つか二つ選び、投票を押して記録しましょう
 </p>
 {% endblock header %} {% block content %} {% load math_tags %}
 <div class="container">
@@ -27,77 +28,8 @@
         <td>{% multiply a.best_choice a.better_choice %}</td>
         <td>{{ a.create_user}}</td>
         <td><a href="{% url 'idea:vote_update' a.pk %}">投票</a></td>
-        <td><a href="{% url 'idea:v_detail' a.pk %}">投票(旧)</a></td>
-        <!--モーダルはじめ-->
-        {# 以下削除ボタン #}
-        <td>
-          <!-- 切り替えボタンの設定 -->
-          <!-- data-targetを変更している -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#Modal{{ a.pk }}"
-          >
-            投票内容の修正
-          </button>
 
-          <!-- モーダルの設定 -->
-          <!--idを変更している-->
-          <div
-            class="modal fade"
-            id="Modal{{ a.pk }}"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="Modal"
-            aria-hidden="true"
-          >
-            <!--以下modal-dialogのCSSの部分で modal-lgやmodal-smを追加するとモーダルのサイズを変更することができる-->
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="Modal">
-                    <!--モーダルのタイトルが表示されます-->
-                    "{{a.title}}" の投票数の編集
-                  </h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="閉じる"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!--モーダルのコンテンツを表示します。このモーダルはサイズを大きくしています。
-                  またレシポンシブデザインに対応しているので画面を小さくすると、モーダルも自動で縮小されます
-                  -->
-                  行いたい操作を下のボタンから選んでください。
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    閉じる
-                  </button>
-                  <a href="{% url 'idea:Vote_decrease' pk=a.id %}">
-                    <button type="button" class="btn-primary">
-                      bestを1つ減らす
-                    </button>
-                  </a>
-                  <a href="{% url 'idea:Vote_decrease2' pk=a.id %}">
-                    <button type="button" class="btn-primary">
-                      betterを1つ減らす
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        
           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
