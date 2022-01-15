@@ -25,7 +25,11 @@
     ></script>
 
     <title>{% block title %}{% endblock title %}</title>
-    <style></style>
+    <style>
+      #page-title {
+        font-size: 20px;
+      }
+    </style>
   </head>
   <body>
     <!-- ナビバー -->
@@ -75,7 +79,9 @@
             <a class="nav-link" href="{% url 'idea:v_list' %}">投票</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'matrix:list' %}">マトリクス</a>
+            <a class="nav-link" href="{% url 'matrix:list' %}"
+              >評価マトリクス</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'refine:home' %}">統括的分析</a>
@@ -106,7 +112,7 @@
 
     <!-- コンテンツ -->
     <div style="background-color: #edf7ff">
-      <h3>{% block header %}{% endblock header%}</h3>
+      {% block header %}{% endblock header%}
     </div>
     <!--形を整える-->
     {% block content %}{% endblock content %}
