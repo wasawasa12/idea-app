@@ -56,7 +56,9 @@
     </thead>
     <tbody>
       {% for issues in contents_list %}
-      <tr>
+      <!--コメントタイプでif-->
+      {% if issues.get_comment_type_display == 'ポジティブ' %}
+      <tr class="table-warning">
         <td>{{ issues.ref_issues }}</td>
         <td>{{ issues.get_comment_type_display }}</td>
         <td>{{ issues.comment_content}}</td>
@@ -65,8 +67,27 @@
         </td>
         <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
       </tr>
-
-      {% endfor %}
+      {% elif issues.get_comment_type_display == 'ネガティブ' %}
+      <tr class="table-primary">
+        <td>{{ issues.ref_issues }}</td>
+        <td>{{ issues.get_comment_type_display }}</td>
+        <td>{{ issues.comment_content}}</td>
+        <td>
+          <a href="{% url 'refine:c_update' issues.pk %}">コメント内容の編集</a>
+        </td>
+        <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
+      </tr>
+      {% else %}
+      <tr class="table-danger">
+        <td>{{ issues.ref_issues }}</td>
+        <td>{{ issues.get_comment_type_display }}</td>
+        <td>{{ issues.comment_content}}</td>
+        <td>
+          <a href="{% url 'refine:c_update' issues.pk %}">コメント内容の編集</a>
+        </td>
+        <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
+      </tr>
+      {% endif %}{% endfor %}
     </tbody>
   </table>
 </div>
