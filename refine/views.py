@@ -104,7 +104,7 @@ class CommentCreate(generic.CreateView):
     # 参照論点を自分のものだけ表示するフィルター
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'].fields['ref_idea'].queryset = RefineIssues.objects.filter(create_user=self.request.user)
+        context['form'].fields['ref_issues'].queryset = RefineIssues.objects.filter(create_user=self.request.user)
         return context
 
     # フォームの値が正しいかどうかの検証をして　検証が通ったら実行される部分
@@ -122,14 +122,14 @@ class CommentCreate(generic.CreateView):
 
 class CommentUpdate(generic.UpdateView):
     model = RefineContents
-    fields = ('ref_issues', 'comment_type', 'comment_content')
+    form_class = CommentForm
     template_name = "refine/c_form.html"
     success_url = reverse_lazy("refine:list")
 
     # 参照論点を自分のものだけ表示するフィルター
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'].fields['ref_idea'].queryset = RefineIssues.objects.filter(create_user=self.request.user)
+        context['form'].fields['ref_issues'].queryset = RefineIssues.objects.filter(create_user=self.request.user)
         return context
 
 # 削除機能

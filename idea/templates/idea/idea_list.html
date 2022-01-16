@@ -20,7 +20,14 @@
         <th>ユーザー名</th>
         <th></th>
         <th></th>
-        <th><a href="{% url 'idea:create' %}">新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'idea:create' %}"
+            role="button"
+            >新規作成
+          </a>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -30,9 +37,30 @@
         <td>{{ a.description }}</td>
         <td>{{ a.cycle_num}}</td>
         <td>{{ a.create_user}}</td>
-        <td><a href="{% url 'idea:detail' a.pk %}">詳細</a></td>
-        <td><a href="{% url 'idea:update' a.pk %}">編集</a></td>
-        <td><a href="{% url 'idea:delete' a.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'idea:detail' a.pk %}"
+            role="button"
+            >詳細</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'idea:update' a.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'idea:delete' a.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>
