@@ -1,5 +1,8 @@
-{% extends 'account/base.html' %} {% block header %}
-<a class="navbar-brand" href="">アイディアの投稿/編集</a>
+{% extends 'account/base.html' %}{% block title %}
+<title>アイディアの投稿/編集-アイディア発想支援</title> {% endblock title %}
+<!--改行防ぎ-->
+{%block header %}
+<span id="page-title">アイディアの投稿/編集</span>
 {% endblock header%} {% block content %}
 <form action="" method="POST">
   {% csrf_token %}

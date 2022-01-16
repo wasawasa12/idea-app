@@ -1,5 +1,8 @@
-{% extends 'account/base.html' %} {% block header %}
-<a class="navbar-brand" href="">アイディアの削除</a>
+{% extends 'account/base.html' %}{% block title %}
+<title>アイディア削除-アイディア発想支援</title> {% endblock title %}
+<!---->
+{% block header %}
+<span id="page-title">アイディアの削除</span>
 {% endblock header %} {% block content %}
 <h3>「{{opinion.title}}」を削除します。</h3>
 <form action="" method="POST">

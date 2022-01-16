@@ -42,7 +42,7 @@ class StandardCreate(generic.CreateView):
 
 class StandardUpdate(generic.UpdateView):
     model = Standard
-    orm_class = StandardForm
+    form_class = StandardForm
     template_name = "standard/form.html"
     success_url = reverse_lazy("standard:list")
 

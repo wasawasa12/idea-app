@@ -1,7 +1,7 @@
 {% extends 'account/base.html' %}
 <!--このコメント消さないで!バグるよ!!!-->
-{% block title %}トップページ {% endblock title %} {% block header %}
-<a class="navbar-brand" href="">トップページ</a>
+{% block title %}<title>トップページ</title> {% endblock title %} {% block header %}
+<span id="page-title">トップページ</span>
 {% endblock header%}
 <!-- コンテンツ -->
 {% block content %}
@@ -16,6 +16,14 @@
   </p>
 
   <h3>アイディア発想支援サイト使用の流れ</h3>
+  <h5>ステップ0 ログイン</h5>
+  <p>
+    前述したとおり、入力内容はユーザー情報に紐づけられるのでこのサイトの利用には会員登録及びログインが必要です。</br>
+    <span style="color: goldenrod; font-weight: bold">ログインボタン</span>
+    は、パソコンの場合だと、上のバーに表示されていますが、スマホなどの小さな画面で表示する場合は、バー右端の
+    <span style="color: goldenrod; font-weight: bold">ハンバーガーメニュー(漢字の「三」のような形)</span>を押してください。ログイン後のページ移動も同様です。
+  </p>
+
   <h5>ステップ1 アイディア発想</h5>
   <p>
     <span style="color: #ff0000; font-weight: bold">アイディア発想</span
