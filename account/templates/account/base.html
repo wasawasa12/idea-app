@@ -98,6 +98,11 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'account:logout' %}">ログアウト</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:delete' user.username %}"
+              >退会</a
+            >
+          </li>
           {% endif %}
         </ul>
       </div>

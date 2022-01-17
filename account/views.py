@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin  # 他人のマイペ
 from django.views import generic
 from django.shortcuts import redirect, resolve_url  # 追加
 from django.urls import reverse_lazy  # 追加　遅延評価用
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin  # 退会処理
 # Create your views here.
 
 '''トップページ'''
@@ -112,3 +113,22 @@ class PasswordChange(PasswordChangeView):
 
 class PasswordChangeDone(PasswordChangeDoneView):
     template_name = 'account/password_change_done.html'
+
+
+# 退会処理(ここは退会画面にアクセスを行う制限)
+class OnlyYouMixin(UserPassesTestMixin):
+    raise_exception = True
+
+    def test_func(self):
+        user = self.request.user
+        return user.username == self.kwargs['username'] or user.is_superuser
+
+# 退会処理
+
+
+class UserDeleteView(OnlyYouMixin, generic.DeleteView):
+    template_name = "account/delete.html"
+    success_url = reverse_lazy("account:top")
+    model = User
+    slug_field = 'username'
+    slug_url_kwarg = 'username'

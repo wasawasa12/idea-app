@@ -1,0 +1,23 @@
+{% extends 'account/base.html' %} {% block content %}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">退会</h1>
+    </div>
+  </div>
+</section>
+
+<form role="form" method="post">
+  {% csrf_token %}
+  <p>
+    あなたのアカウント「@{{user.username}}」を、本当に削除してもよろしいですか？
+  </p>
+  <a
+    href="javascript:void(0);"
+    onclick="window.history.back();"
+    class="btn btn-outline-secondary"
+    >キャンセル</a
+  >
+  <button type="submit" class="btn btn-danger">削除</button>
+</form>
+{% endblock content%}
