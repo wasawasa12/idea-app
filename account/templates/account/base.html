@@ -36,9 +36,10 @@
       .margin-left {
         margin-left: 15px;
       }
-      /*トップページの行間調整*/
-      .top-line-height {
+      /*トップページの行間調整と背景色*/
+      .top-page-setting {
         line-height: 200%;
+        background-color: snow;
       }
       /*表の帯の色*/
       .thead-color {
@@ -48,10 +49,12 @@
   </head>
   <body>
     <!-- ナビバー -->
-    <nav class="navbar navbar-expand-md navbar-light bg-info">
-      <a class="navbar-brand" href="{% url 'account:top' %}"
-        >アイディア発想支援サイト</a
-      >
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="margin-left">
+        <a class="navbar-brand" href="{% url 'account:top' %}"
+          >アイディア発想支援サイト</a
+        >
+      </div>
       <button
         class="navbar-toggler"
         type="button"
@@ -131,7 +134,7 @@
     </div>
 
     <!-- コンテンツ -->
-    <div style="background-color: #edf7ff">
+    <div style="background-color: mistyrose">
       {% block header %}{% endblock header%}
     </div>
     <!--形を整える-->

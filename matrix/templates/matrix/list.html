@@ -8,7 +8,7 @@
   <span id="page-title">アイディア評価マトリクス</span>
   　　　アイディアに対して、評価基準をもとに議論を行い内容を入力しましょう。
   <a
-  class="btn btn-secondary"
+  class="btn btn-secondary btn-sm"
   href="{% url 'account:top' %}#jump_matrix"
   role="button"
   >ヘルプ</a
@@ -27,7 +27,7 @@
         <th></th>
         <th>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary btn-sm"
             href="{% url 'matrix:create' %}"
             role="button"
             >新規作成</a
@@ -53,7 +53,7 @@
         <td>{{ matrix.create_user}}</td>
         <td>
           <a
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-sm"
             href="{% url 'matrix:update' matrix.pk %}"
             role="button"
             >編集</a
@@ -61,7 +61,7 @@
         </td>
         <td>
           <a
-            class="btn btn-danger"
+            class="btn btn-danger btn-sm"
             href="{% url 'matrix:delete' matrix.pk %}"
             role="button"
             >削除</a

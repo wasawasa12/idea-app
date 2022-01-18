@@ -8,7 +8,7 @@
   <span id="page-title">アイディアの精緻化</span>
   　アイディアに対して指摘されそうなことを話し合い、論点を定めましょう　そして、優先順位に従い、論点について議論を行いメモを入力しましょう 
   <a
-  class="btn btn-secondary"
+  class="btn btn-secondary btn-sm"
   href="{% url 'account:top' %}#jump_refine2"
   role="button"
   >ヘルプ</a
@@ -28,7 +28,7 @@
         <th></th>
         <th>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary btn-sm"
             href="{% url 'refine:create' %}"
             role="button"
             >論点の新規作成</a
@@ -44,7 +44,7 @@
         <td>{{ issues.create_user}}</td>
         <td>
           <a
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-sm"
             href="{% url 'refine:update' issues.pk %}"
             role="button"
             >論点/優先順位の編集</a
@@ -52,7 +52,7 @@
         </td>
         <td>
           <a
-            class="btn btn-danger"
+            class="btn btn-danger btn-sm"
             href="{% url 'refine:delete' issues.pk %}"
             role="button"
             >削除</a
@@ -77,7 +77,7 @@
         <th></th>
         <th>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary btn-sm"
             href="{% url 'refine:c_create' %}"
             role="button"
             >コメントの新規作成</a
@@ -101,7 +101,7 @@
         <td>{{ issues.comment_content}}</td>
         <td>
           <a
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-sm"
             href="{% url 'refine:c_update' issues.pk %}"
             role="button"
             >コメント内容の編集</a
@@ -109,7 +109,7 @@
         </td>
         <td>
           <a
-            class="btn btn-danger"
+            class="btn btn-danger btn-sm"
             href="{% url 'refine:c_delete' issues.pk %}"
             role="button"
             >削除</a

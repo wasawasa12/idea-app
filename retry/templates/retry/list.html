@@ -7,7 +7,7 @@
   <span id="page-title">再試行の設計</span>
   　振り返りで定めた問題点を解決するためには、何をすべきか話し合い再試行の内容を定め、入力しましょう　
   <a
-  class="btn btn-secondary"
+  class="btn btn-secondary btn-sm"
   href="{% url 'account:top' %}#jump_retry"
   role="button"
   >ヘルプ</a
@@ -29,7 +29,7 @@
         <th></th>
         <th>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary btn-sm"
             href="{% url 'retry:create' %}"
             role="button"
             >新規作成</a
@@ -45,7 +45,7 @@
         <td>{{ content.create_user}}</td>
         <td>
           <a
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-sm"
             href="{% url 'retry:update' content.pk %}"
             role="button"
             >編集</a
@@ -53,7 +53,7 @@
         </td>
         <td>
           <a
-            class="btn btn-danger"
+            class="btn btn-danger btn-sm"
             href="{% url 'retry:delete' content.pk %}"
             role="button"
             >削除</a

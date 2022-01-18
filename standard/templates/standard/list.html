@@ -6,7 +6,7 @@
   <span id="page-title">評価基準一覧</span>
   　3つ程度評価基準を設定しましょう(例 新規性、独創性、実行可能性、有効性)　
   <a
-    class="btn btn-secondary"
+    class="btn btn-secondary btn-sm"
     href="{% url 'account:top' %}#jump_standard"
     role="button"
     >ヘルプ</a
@@ -23,7 +23,7 @@
         <th></th>
         <th>
           <a
-            class="btn btn-primary"
+            class="btn btn-primary btn-sm"
             href="{% url 'standard:create' %}"
             role="button"
             >新規作成</a
@@ -38,7 +38,7 @@
         <td>{{ a.create_user}}</td>
         <td>
           <a
-            class="btn btn-outline-primary"
+            class="btn btn-outline-primary btn-sm"
             href="{% url 'standard:update' a.pk %}"
             role="button"
             >編集</a
@@ -46,7 +46,7 @@
         </td>
         <td>
           <a
-            class="btn btn-danger"
+            class="btn btn-danger btn-sm"
             href="{% url 'standard:delete' a.pk %}"
             role="button"
             >削除</a
