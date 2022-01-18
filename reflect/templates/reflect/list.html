@@ -19,7 +19,7 @@
     <caption>
       振り返り論点一覧
     </caption>
-    <thead style="background-color: aquamarine">
+    <thead class="thead-color">
       <tr>
         <th scope="col">論点</th>
         <th>user</th>
@@ -67,7 +67,7 @@
     <caption>
       コメント一覧
     </caption>
-    <thead style="background-color: aquamarine">
+    <thead class="thead-color">
       <tr>
         <th scope="col">論点</th>
         <th scope="col">コメントタイプ</th>
@@ -89,52 +89,12 @@
       <!--コメントタイプでif-->
       {% if reflect.get_comment_type_display == 'ポジティブ' %}
       <tr class="table-warning">
-        <td>{{ reflect.ref_issues }}</td>
-        <td>{{ reflect.get_comment_type_display }}</td>
-        <td>{{ reflect.comment_content }}</td>
-        <td>{{ reflect.create_user }}</td>
-        <td>
-          <a
-            class="btn btn-outline-primary"
-            href="{% url 'reflect:c_update' reflect.pk %}"
-            role="button"
-            >コメント内容の編集</a
-          >
-        </td>
-        <td>
-          <a
-            class="btn btn-danger"
-            href="{% url 'reflect:c_delete' reflect.pk %}"
-            role="button"
-            >削除</a
-          >
-        </td>
-      </tr>
       {% elif reflect.get_comment_type_display == 'ネガティブ' %}
       <tr class="table-primary">
-        <td>{{ reflect.ref_issues }}</td>
-        <td>{{ reflect.get_comment_type_display }}</td>
-        <td>{{ reflect.comment_content }}</td>
-        <td>{{ reflect.create_user }}</td>
-        <td>
-          <a
-            class="btn btn-outline-primary"
-            href="{% url 'reflect:c_update' reflect.pk %}"
-            role="button"
-            >コメント内容の編集</a
-          >
-        </td>
-        <td>
-          <a
-            class="btn btn-danger"
-            href="{% url 'reflect:c_delete' reflect.pk %}"
-            role="button"
-            >削除</a
-          >
-        </td>
-      </tr>
       {% else %}
       <tr class="table-danger">
+      {% endif %}
+
         <td>{{ reflect.ref_issues }}</td>
         <td>{{ reflect.get_comment_type_display }}</td>
         <td>{{ reflect.comment_content }}</td>
@@ -156,7 +116,7 @@
           >
         </td>
       </tr>
-      {% endif %} {% endfor %}
+      {% endfor %}
     </tbody>
   </table>
 </div>
@@ -167,7 +127,7 @@
     <caption>
       問題点
     </caption>
-    <thead style="background-color: aquamarine">
+    <thead class="thead-color">
       <tr>
         <th scope="col">問題点</th>
         <th>user</th>

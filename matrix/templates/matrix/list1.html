@@ -40,11 +40,6 @@
       <!--コメントタイプでif-->
       {% if matrix.get_comment_type_display == 'ポジティブ' %}
       <tr class="table-warning">
-      {% elif matrix.get_comment_type_display == 'ネガティブ' %}
-      <tr class="table-primary">
-      {% else %}
-      <tr class="table-danger">
-      {% endif %}
         <td>{{ matrix.ref_idea}}</td>
         <td>{{ matrix.ref_standard}}</td>
         <!--コメントタイプのvalueを表示させる-->
@@ -68,7 +63,58 @@
           >
         </td>
       </tr>
-     {% endfor %}
+      {% elif matrix.get_comment_type_display == 'ネガティブ' %}
+      <tr class="table-primary">
+        <td>{{ matrix.ref_idea}}</td>
+        <td>{{ matrix.ref_standard}}</td>
+        <!--コメントタイプのvalueを表示させる-->
+        <td>{{ matrix.get_comment_type_display}}</td>
+        <td>{{ matrix.comment_content}}</td>
+        <td>{{ matrix.create_user}}</td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'matrix:update' matrix.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'matrix:delete' matrix.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
+      </tr>
+      {% else %}
+      <tr class="table-danger">
+        <td>{{ matrix.ref_idea}}</td>
+        <td>{{ matrix.ref_standard}}</td>
+        <!--コメントタイプのvalueを表示させる-->
+        <td>{{ matrix.get_comment_type_display}}</td>
+        <td>{{ matrix.comment_content}}</td>
+        <td>{{ matrix.create_user}}</td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'matrix:update' matrix.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'matrix:delete' matrix.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
+      </tr>
+      {% endif %} {% endfor %}
     </tbody>
   </table>
 </div>
