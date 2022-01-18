@@ -5,7 +5,12 @@
 <!--ヘッダー-->{% block header %}
 <p>
   <span id="page-title">アイディアの振り返り</span>
-  　どうして納得いかなかったのか論点を定めましょう(上)　その論点について、話し合いを行い(真ん中)、最後に問題点としてまとめましょう(下)
+  　どうして納得いかなかったのか論点を定めましょう(上)　その論点について、話し合いを行い(真ん中)、最後に問題点としてまとめましょう(下)　
+  <a
+  class="btn btn-secondary"
+  href="{% url 'account:top' %}#jump_reflect"
+  role="button"
+  >ヘルプ</a
 </p>
 {% endblock header %} {% block content %}
 <!--論点を表示する-->

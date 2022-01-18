@@ -4,7 +4,13 @@
 {% block header %}
 <p>
   <span id="page-title">アイディア一覧</span>
-  　アイディアを入力していきましょう
+  　アイディアを入力していきましょう　
+  <a
+    class="btn btn-secondary"
+    href="{% url 'account:top' %}#jump_idea"
+    role="button"
+    >ヘルプ</a
+  >
 </p>
 
 <!--改行防ぎ-->

@@ -4,7 +4,12 @@
   {% endblock title %}
   <!--ヘッダー--> {% block header %}
 <p>
-    <span id="page-title">統括的分析</span></br> 
+    <span id="page-title">統括的分析　</span>
+    <a
+    class="btn btn-secondary"
+    href="{% url 'account:top' %}#jump_refine"
+    role="button"
+    >ヘルプ</a
 </p>
 {% endblock header %} {% block content %}
 

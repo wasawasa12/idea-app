@@ -5,7 +5,12 @@
 <!--ヘッダー-->{% block header %}
 <p>
   <span id="page-title">再試行の設計</span>
-  　振り返りで定めた問題点を解決するためには、何をすべきか話し合い再試行の内容を定め、入力しましょう
+  　振り返りで定めた問題点を解決するためには、何をすべきか話し合い再試行の内容を定め、入力しましょう　
+  <a
+  class="btn btn-secondary"
+  href="{% url 'account:top' %}#jump_retry"
+  role="button"
+  >ヘルプ</a
 </p>
 {% endblock header %}
 <!--このコメントは消さないで、インデントでバグる-->

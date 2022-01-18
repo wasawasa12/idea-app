@@ -4,7 +4,13 @@
 {% block header %}
 <p>
   <span id="page-title">評価基準一覧</span>
-  　3つ程度評価基準を設定しましょう(例 新規性、独創性、実行可能性、有効性)
+  　3つ程度評価基準を設定しましょう(例 新規性、独創性、実行可能性、有効性)　
+  <a
+    class="btn btn-secondary"
+    href="{% url 'account:top' %}#jump_standard"
+    role="button"
+    >ヘルプ</a
+  >
 </p>
 {% endblock header%}{% block content %}
 <div class="container">
