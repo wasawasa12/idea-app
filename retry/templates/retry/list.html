@@ -5,7 +5,7 @@
 <!--ヘッダー-->{% block header %}
 <p>
   <span id="page-title">再試行の設計</span>
-  　　　振り返りで定めた問題点を解決するためには、何をすべきか話し合い再試行の内容を定め、入力しましょう
+  　振り返りで定めた問題点を解決するためには、何をすべきか話し合い再試行の内容を定め、入力しましょう
 </p>
 {% endblock header %}
 <!--このコメントは消さないで、インデントでバグる-->
@@ -23,7 +23,12 @@
         <th>user</th>
         <th></th>
         <th>
-          <a href="{% url 'retry:create' %}">新規作成</a>
+          <a
+            class="btn btn-primary"
+            href="{% url 'retry:create' %}"
+            role="button"
+            >新規作成</a
+          >
         </th>
       </tr>
     </thead>
@@ -33,8 +38,22 @@
         <td>{{ content.ref_problem }}</td>
         <td>{{ content.content }}</td>
         <td>{{ content.create_user}}</td>
-        <td><a href="{% url 'retry:update' content.pk %}">編集</a></td>
-        <td><a href="{% url 'retry:delete' content.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'retry:update' content.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'retry:delete' content.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>

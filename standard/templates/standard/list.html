@@ -3,8 +3,8 @@
 <!--ページ見出し-->
 {% block header %}
 <p>
-  <span id="page-title">評価基準一覧</span
-  >　　　3つ程度評価基準を設定しましょう(例 新規性、独創性、実行可能性、有効性)
+  <span id="page-title">評価基準一覧</span>
+  　3つ程度評価基準を設定しましょう(例 新規性、独創性、実行可能性、有効性)
 </p>
 {% endblock header%}{% block content %}
 <div class="container">
@@ -15,7 +15,14 @@
         <!--整形のためtbodyと要素数をそろえる-->
         <th>user</th>
         <th></th>
-        <th><a href="{% url 'standard:create' %}">新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'standard:create' %}"
+            role="button"
+            >新規作成</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +30,22 @@
       <tr>
         <td>{{ a.standard }}</td>
         <td>{{ a.create_user}}</td>
-        <td><a href="{% url 'standard:update' a.pk %}">編集</a></td>
-        <td><a href="{% url 'standard:delete' a.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'standard:update' a.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'standard:delete' a.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
 
       {% endfor %}

@@ -20,7 +20,14 @@
         <th scope="col">コメントの内容</th>
         <th>user</th>
         <th></th>
-        <th><a href="{% url 'matrix:create' %}">新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'matrix:create' %}"
+            role="button"
+            >新規作成</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -34,8 +41,22 @@
         <td>{{ matrix.get_comment_type_display}}</td>
         <td>{{ matrix.comment_content}}</td>
         <td>{{ matrix.create_user}}</td>
-        <td><a href="{% url 'matrix:update' matrix.pk %}">編集</a></td>
-        <td><a href="{% url 'matrix:delete' matrix.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'matrix:update' matrix.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'matrix:delete' matrix.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% elif matrix.get_comment_type_display == 'ネガティブ' %}
       <tr class="table-primary">
@@ -45,8 +66,23 @@
         <td>{{ matrix.get_comment_type_display}}</td>
         <td>{{ matrix.comment_content}}</td>
         <td>{{ matrix.create_user}}</td>
-        <td><a href="{% url 'matrix:update' matrix.pk %}">編集</a></td>
-        <td><a href="{% url 'matrix:delete' matrix.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'matrix:update' matrix.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'matrix:delete' matrix.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% else %}
       <tr class="table-danger">
@@ -56,8 +92,22 @@
         <td>{{ matrix.get_comment_type_display}}</td>
         <td>{{ matrix.comment_content}}</td>
         <td>{{ matrix.create_user}}</td>
-        <td><a href="{% url 'matrix:update' matrix.pk %}">編集</a></td>
-        <td><a href="{% url 'matrix:delete' matrix.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'matrix:update' matrix.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'matrix:delete' matrix.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endif %} {% endfor %}
     </tbody>

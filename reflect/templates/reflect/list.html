@@ -5,7 +5,7 @@
 <!--ヘッダー-->{% block header %}
 <p>
   <span id="page-title">アイディアの振り返り</span>
-  　　　どうして納得いかなかったのか論点を定めましょう(上)　その論点について、話し合いを行い(真ん中)、最後に問題点としてまとめましょう(下)
+  　どうして納得いかなかったのか論点を定めましょう(上)　その論点について、話し合いを行い(真ん中)、最後に問題点としてまとめましょう(下)
 </p>
 {% endblock header %} {% block content %}
 <!--論点を表示する-->
@@ -19,7 +19,14 @@
         <th scope="col">論点</th>
         <th>user</th>
         <th></th>
-        <th><a href="{% url 'reflect:create' %}">論点の新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'reflect:create' %}"
+            role="button"
+            >論点の新規作成</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -28,9 +35,21 @@
         <td>{{ reflect.issues }}</td>
         <td>{{ reflect.create_user }}</td>
         <td>
-          <a href="{% url 'reflect:update' reflect.pk %}">編集</a>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'reflect:update' reflect.pk %}"
+            role="button"
+            >編集</a
+          >
         </td>
-        <td><a href="{% url 'reflect:delete' reflect.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'reflect:delete' reflect.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>
@@ -50,7 +69,14 @@
         <th scope="col">コメント内容</th>
         <th>user</th>
         <th></th>
-        <th><a href="{% url 'reflect:c_create' %}">コメントの新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'reflect:c_create' %}"
+            role="button"
+            >コメントの新規作成</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -63,11 +89,21 @@
         <td>{{ reflect.comment_content }}</td>
         <td>{{ reflect.create_user }}</td>
         <td>
-          <a href="{% url 'reflect:c_update' reflect.pk %}"
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'reflect:c_update' reflect.pk %}"
+            role="button"
             >コメント内容の編集</a
           >
         </td>
-        <td><a href="{% url 'reflect:c_delete' reflect.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'reflect:c_delete' reflect.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% elif reflect.get_comment_type_display == 'ネガティブ' %}
       <tr class="table-primary">
@@ -76,11 +112,21 @@
         <td>{{ reflect.comment_content }}</td>
         <td>{{ reflect.create_user }}</td>
         <td>
-          <a href="{% url 'reflect:c_update' reflect.pk %}"
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'reflect:c_update' reflect.pk %}"
+            role="button"
             >コメント内容の編集</a
           >
         </td>
-        <td><a href="{% url 'reflect:c_delete' reflect.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'reflect:c_delete' reflect.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% else %}
       <tr class="table-danger">
@@ -89,11 +135,21 @@
         <td>{{ reflect.comment_content }}</td>
         <td>{{ reflect.create_user }}</td>
         <td>
-          <a href="{% url 'reflect:c_update' reflect.pk %}"
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'reflect:c_update' reflect.pk %}"
+            role="button"
             >コメント内容の編集</a
           >
         </td>
-        <td><a href="{% url 'reflect:c_delete' reflect.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'reflect:c_delete' reflect.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endif %} {% endfor %}
     </tbody>
@@ -111,7 +167,14 @@
         <th scope="col">問題点</th>
         <th>user</th>
         <th></th>
-        <th><a href="{% url 'reflect:p_create' %}">問題点の新規投稿</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'reflect:p_create' %}"
+            role="button"
+            >問題点の新規投稿</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -119,8 +182,22 @@
       <tr>
         <td>{{ reflect.problem }}</td>
         <td>{{ reflect.create_user }}</td>
-        <td><a href="{% url 'reflect:p_update' reflect.pk %}">編集</a></td>
-        <td><a href="{% url 'reflect:p_delete' reflect.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'reflect:p_update' reflect.pk %}"
+            role="button"
+            >編集</a
+          >
+        </td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'reflect:p_delete' reflect.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>

@@ -6,7 +6,7 @@
 {% block header %}
 <p>
   <span id="page-title">アイディアの精緻化</span>
-  　　　アイディアに対して指摘されそうなことを話し合い、論点を定めましょう　そして、優先順位に従い、論点について議論を行いメモを入力しましょう
+  　アイディアに対して指摘されそうなことを話し合い、論点を定めましょう　そして、優先順位に従い、論点について議論を行いメモを入力しましょう
 </p>
 {% endblock header%} {% block content %}
 
@@ -21,7 +21,14 @@
         <th scope="col">優先順位</th>
         <th>user</th>
         <th></th>
-        <th><a href="{% url 'refine:create' %}">論点の新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'refine:create' %}"
+            role="button"
+            >論点の新規作成</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -31,9 +38,21 @@
         <td>{{ issues.priority }}</td>
         <td>{{ issues.create_user}}</td>
         <td>
-          <a href="{% url 'refine:update' issues.pk %}">論点/優先順位の編集</a>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'refine:update' issues.pk %}"
+            role="button"
+            >論点/優先順位の編集</a
+          >
         </td>
-        <td><a href="{% url 'refine:delete' issues.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'refine:delete' issues.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endfor %}
     </tbody>
@@ -51,7 +70,14 @@
         <th scope="col">コメントタイプ</th>
         <th scope="col">コメント内容</th>
         <th></th>
-        <th><a href="{% url 'refine:c_create' %}">コメントの新規作成</a></th>
+        <th>
+          <a
+            class="btn btn-primary"
+            href="{% url 'refine:c_create' %}"
+            role="button"
+            >コメントの新規作成</a
+          >
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -63,9 +89,21 @@
         <td>{{ issues.get_comment_type_display }}</td>
         <td>{{ issues.comment_content}}</td>
         <td>
-          <a href="{% url 'refine:c_update' issues.pk %}">コメント内容の編集</a>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'refine:c_update' issues.pk %}"
+            role="button"
+            >コメント内容の編集</a
+          >
         </td>
-        <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'refine:c_delete' issues.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% elif issues.get_comment_type_display == 'ネガティブ' %}
       <tr class="table-primary">
@@ -73,9 +111,21 @@
         <td>{{ issues.get_comment_type_display }}</td>
         <td>{{ issues.comment_content}}</td>
         <td>
-          <a href="{% url 'refine:c_update' issues.pk %}">コメント内容の編集</a>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'refine:c_update' issues.pk %}"
+            role="button"
+            >コメント内容の編集</a
+          >
         </td>
-        <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'refine:c_delete' issues.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% else %}
       <tr class="table-danger">
@@ -83,9 +133,21 @@
         <td>{{ issues.get_comment_type_display }}</td>
         <td>{{ issues.comment_content}}</td>
         <td>
-          <a href="{% url 'refine:c_update' issues.pk %}">コメント内容の編集</a>
+          <a
+            class="btn btn-outline-primary"
+            href="{% url 'refine:c_update' issues.pk %}"
+            role="button"
+            >コメント内容の編集</a
+          >
         </td>
-        <td><a href="{% url 'refine:c_delete' issues.pk %}">削除</a></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'refine:c_delete' issues.pk %}"
+            role="button"
+            >削除</a
+          >
+        </td>
       </tr>
       {% endif %}{% endfor %}
     </tbody>
