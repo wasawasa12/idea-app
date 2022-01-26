@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key  # 追加シークレットキーの設定らしい
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -136,6 +137,7 @@ LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移す
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
+SECRET_KEY = get_random_secret_key()
 
 # ローカル運用ではlocal_settings.pyを読み込む
 try:
