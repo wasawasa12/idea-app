@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from django.core.management.utils import get_random_secret_key  # 追加シークレットキーの設定らしい
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q3mkp%@sxu2a0_@!3e3h9#j3t)pn+2%=0sszm5elki(g@v_+vr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,3 +133,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 追加
 LOGIN_URL = 'account:login'  # ログインのURLの設定
 LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移するURL
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+SECRET_KEY = get_random_secret_key()
+
+# ローカル運用ではlocal_settings.pyを読み込む
+try:
+    from .local_settings import *
+except:
+    pass
