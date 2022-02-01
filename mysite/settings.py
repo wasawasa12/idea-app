@@ -132,16 +132,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 追加
 LOGIN_URL = 'account:login'  # ログインのURLの設定
-LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移するURL
+# LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移するURL
+LOGIN_REDIRECT_URL = 'idea:list'
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 SECRET_KEY = get_random_secret_key()
 
-
+"""
 # ローカル運用ではlocal_settings.pyを読み込む
 try:
     from .local_settings import *
 except:
     pass
+"""
