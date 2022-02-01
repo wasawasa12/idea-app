@@ -132,8 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 追加
 LOGIN_URL = 'account:login'  # ログインのURLの設定
-# LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移するURL
-LOGIN_REDIRECT_URL = 'idea:list'
+LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移するURL
+#LOGIN_REDIRECT_URL = 'idea:list'
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
