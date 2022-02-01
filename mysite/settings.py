@@ -132,3 +132,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 追加
 LOGIN_URL = 'account:login'  # ログインのURLの設定
 LOGIN_REDIRECT_URL = 'account:top'  # ログインが完了した後に遷移するURL
+
+
+# ローカル運用ではsettingscopy.pyを読み込む
+try:
+    from .settingscopy import *
+except:
+    pass
